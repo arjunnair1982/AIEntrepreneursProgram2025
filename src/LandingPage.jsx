@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,30 +40,43 @@ function scrollToEnroll() {
   document.getElementById("schedule")?.scrollIntoView({ behavior: "smooth" });
 }
 
-function GoogleFormEnroll() {
+export function GoogleFormEnroll() {
   const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef(null);
 
-  const FORM_ACTION =
-    "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfs6CvLDhmJyn-ufBvtmvpokTwklsvyh9uoewoQS934bqo9wQ/formResponse";
+  // Listen for iframe load event to show thank you message
+  useEffect(() => {
+    const iframe = document.getElementById("hidden_iframe");
+    if (!iframe) return;
+    const handler = () => setSubmitted(true);
+    iframe.addEventListener("load", handler);
+    return () => iframe.removeEventListener("load", handler);
+  }, []);
 
-  return submitted ? (
-    <div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
-      Thanks! We’ve received your interest. We’ll get back to you shortly.
-    </div>
-  ) : (
+  if (submitted) {
+    return (
+      <div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+        Thanks! We’ve received your interest. We’ll get back to you shortly.
+      </div>
+    );
+  }
+
+  return (
     <form
-      action={FORM_ACTION}
+      ref={formRef}
+      action="https://docs.google.com/forms/d/e/1FAIpQLSfs6CvLDhmJyn-ufBvtmvpokTwklsvyh9uoewoQS934bqo9wQ/formResponse"
       method="POST"
       target="hidden_iframe"
-      onSubmit={() => setSubmitted(true)}
       className="grid gap-3"
     >
-      <Input name="entry.996326909" placeholder="Parent name" required />
-      <Input name="entry.1924727914" type="email" placeholder="Email" required />
-      <Input name="entry.456613422" placeholder="Phone / WhatsApp" />
-      <Input name="entry.2045828393" placeholder="Student name & age" required />
-      <Textarea name="entry.2112294450" placeholder="Any questions or notes?" />
-      <Button type="submit">Submit Interest</Button>
+      <input name="entry.996326909" placeholder="Parent name" required className="h-10 rounded-md border px-3" />
+      <input name="entry.1924727914" type="email" placeholder="Email" required className="h-10 rounded-md border px-3" />
+      <input name="entry.456613422" placeholder="Phone / WhatsApp" className="h-10 rounded-md border px-3" />
+      <input name="entry.2045828393" placeholder="Student name & age" required className="h-10 rounded-md border px-3" />
+      <textarea name="entry.2112294450" placeholder="Any questions or notes?" className="min-h-[96px] rounded-md border p-3" />
+      <button type="submit" className="inline-flex items-center justify-center rounded-md bg-black px-4 py-2 text-white hover:opacity-90">
+        Submit Interest
+      </button>
     </form>
   );
 }
