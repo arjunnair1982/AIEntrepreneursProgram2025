@@ -44,7 +44,7 @@ function GoogleFormEnroll() {
   const [submitted, setSubmitted] = useState(false);
 
   const FORM_ACTION =
-    "https://docs.google.com/forms/d/e/1FAIpQLSfF1-VpYFMkU3e0aZQPU4D5G7-Tdt8swFbRdD2Y_oqHXDPQ/formResponse";
+    "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfs6CvLDhmJyn-ufBvtmvpokTwklsvyh9uoewoQS934bqo9wQ/formResponse";
 
   return submitted ? (
     <div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
@@ -58,11 +58,11 @@ function GoogleFormEnroll() {
       onSubmit={() => setSubmitted(true)}
       className="grid gap-3"
     >
-      <Input name="entry.2125382056" placeholder="Parent name" required />
-      <Input name="entry.1938137086" type="email" placeholder="Email" required />
-      <Input name="entry.1166974655" placeholder="Phone / WhatsApp" />
-      <Input name="entry.839337047" placeholder="Student name & age" required />
-      <Textarea name="entry.1518887306" placeholder="Any questions or notes?" />
+      <Input name="entry.996326909" placeholder="Parent name" required />
+      <Input name="entry.1924727914" type="email" placeholder="Email" required />
+      <Input name="entry.456613422" placeholder="Phone / WhatsApp" />
+      <Input name="entry.2045828393" placeholder="Student name & age" required />
+      <Textarea name="entry.2112294450" placeholder="Any questions or notes?" />
       <Button type="submit">Submit Interest</Button>
     </form>
   );
@@ -71,6 +71,8 @@ function GoogleFormEnroll() {
 export default function LandingPage() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-indigo-50 via-white to-white text-gray-900">
+      {/* Add this line at the very top inside your main div */}
+      <iframe name="hidden_iframe" id="hidden_iframe" style={{display: "none"}} title="hidden_iframe" />
       {/* Sticky Nav */}
       <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-3">
@@ -285,7 +287,6 @@ export default function LandingPage() {
             <CardContent className="p-6 grid gap-3">
               <h4 className="font-semibold">Enroll</h4>
               {/* Hidden iframe keeps the page from navigating away on submit */}
-              <iframe name="hidden_iframe" id="hidden_iframe" className="hidden" title="hidden_iframe" />
               <GoogleFormEnroll />
             </CardContent>
           </Card>
