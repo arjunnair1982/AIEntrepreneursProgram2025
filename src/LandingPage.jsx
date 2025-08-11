@@ -90,7 +90,11 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-3">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 grid place-items-center rounded-xl bg-indigo-600 text-white"><Rocket className="h-4 w-4"/></div>
+            <img
+              src="./logo.png" // <-- Use your actual image file name
+              alt="AI Entrepreneurs Logo"
+              className="h-8 w-8 rounded-xl object-cover"
+            />
             <span className="font-semibold">AI Entrepreneurs Program</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -314,7 +318,11 @@ export default function LandingPage() {
           <h2 className="text-2xl md:text-3xl font-bold">What Families Say</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          {["My child came home excited every week.", "The final showcase was outstanding.", "They actually built and shipped something!"]
+          {[
+            "My child came home excited every day.", // <-- updated testimonial
+            "The final showcase was outstanding.",
+            "They actually built and shipped something!"
+          ]
             .map((quote, i) => (
               <Card key={i} className="rounded-2xl"><CardContent className="p-6 text-sm text-muted-foreground">“{quote}”</CardContent></Card>
             ))}
@@ -335,10 +343,6 @@ export default function LandingPage() {
           <AccordionItem value="item-2">
             <AccordionTrigger>What do students need to bring?</AccordionTrigger>
             <AccordionContent>A laptop, charger, and willing mindset. We provide the rest.</AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>How do you ensure safety and ethics?</AccordionTrigger>
-            <AccordionContent>We teach a short responsible‑AI module and follow a clear code of conduct, including privacy‑first research and parent consent for public posts.</AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
             <AccordionTrigger>What if my child misses a class?</AccordionTrigger>
