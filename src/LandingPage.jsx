@@ -325,21 +325,23 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      <Section id="social-proof" className="pt-20 bg-yellow-50 rounded-xl">
+      {/* Video Embed */}
+      <Section id="video" className="pt-20 pb-8">
         <div className="flex items-center gap-2 mb-6">
-          <Star className="h-5 w-5"/>
-          <h2 className="text-2xl md:text-3xl font-bold">What Families Say</h2>
+          <Star className="h-5 w-5 text-pink-500"/>
+          <h2 className="text-2xl md:text-3xl font-bold text-indigo-700 drop-shadow">See a Previous Session</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          {[
-            "My child came home excited every day.", // <-- updated testimonial
-            "The final showcase was outstanding.",
-            "They actually built and shipped something!"
-          ]
-            .map((quote, i) => (
-              <Card key={i} className="rounded-2xl"><CardContent className="p-6 text-sm text-muted-foreground">“{quote}”</CardContent></Card>
-            ))}
+        <div className="flex justify-center">
+          <div className="w-full max-w-2xl aspect-video rounded-xl overflow-hidden shadow-lg border border-yellow-100 bg-white">
+         <iframe
+            src="https://www.youtube.com/embed/3N92qC7KzSs?loop=1&playlist=3N92qC7KzSs&rel=0&modestbranding=1&playsinline=1"
+            title="AI Entrepreneurs Previous Session"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            className="w-full h-full"
+></iframe>
+          </div>
         </div>
       </Section>
 
