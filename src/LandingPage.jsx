@@ -21,7 +21,7 @@ const Section = ({ id, children, className = "" }) => (
 );
 
 const Pill = ({ children }) => (
-  <span className="inline-flex items-center rounded-full border px-3 py-1 text-xs md:text-sm shadow-sm bg-white/70 backdrop-blur-sm">
+  <span className="inline-flex items-center rounded-full border px-3 py-1 text-xs md:text-sm shadow-sm bg-yellow-50 text-indigo-700 font-semibold">
     {children}
   </span>
 );
@@ -83,30 +83,34 @@ export function GoogleFormEnroll() {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-indigo-50 via-white to-white text-gray-900">
+    <div className="min-h-screen w-full bg-gradient-to-br from-white via-yellow-50 to-sky-100 text-gray-900">
       {/* Add this line at the very top inside your main div */}
       <iframe name="hidden_iframe" id="hidden_iframe" style={{display: "none"}} title="hidden_iframe" />
       {/* Sticky Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b">
+      <header className="sticky top-0 z-50 backdrop-blur bg-white/80 border-b shadow-md">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-3">
           <div className="flex items-center gap-2">
             <img
-              src="./logo.png" // <-- Use your actual image file name
+              src="./logo.png"
               alt="AI Entrepreneurs Logo"
-              className="h-8 w-8 rounded-xl object-cover"
+              className="h-8 w-8 rounded-xl object-cover shadow bg-white"
             />
             <span className="font-semibold">AI Entrepreneurs Program</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#overview" className="hover:text-indigo-600">Overview</a>
-            <a href="#curriculum" className="hover:text-indigo-600">Curriculum</a>
-            <a href="#outcomes" className="hover:text-indigo-600">Outcomes</a>
-            <a href="#instructor" className="hover:text-indigo-600">Instructor</a>
-            <a href="#schedule" className="hover:text-indigo-600">Schedule & Pricing</a>
-            <a href="#faq" className="hover:text-indigo-600">FAQ</a>
+            <a href="#overview" className="hover:text-pink-500 transition-colors duration-200">Overview</a>
+            <a href="#curriculum" className="hover:text-pink-500 transition-colors duration-200">Curriculum</a>
+            <a href="#outcomes" className="hover:text-pink-500 transition-colors duration-200">Outcomes</a>
+            <a href="#instructor" className="hover:text-pink-500 transition-colors duration-200">Instructor</a>
+            <a href="#schedule" className="hover:text-pink-500 transition-colors duration-200">Schedule & Pricing</a>
+            <a href="#faq" className="hover:text-pink-500 transition-colors duration-200">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
-            <Button size="sm" className="hidden md:inline-flex" onClick={scrollToEnroll}>
+            <Button
+              size="sm"
+              className="hidden md:inline-flex bg-black hover:bg-gray-900 text-white font-bold shadow"
+              onClick={scrollToEnroll}
+            >
               Apply Now
             </Button>
           </div>
@@ -128,12 +132,22 @@ export default function LandingPage() {
               and launch real mini‑ventures—culminating in a public showcase.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Badge className="bg-emerald-600">Max 25 seats</Badge>
-              <Badge variant="secondary">$390 total • 10% sibling discount</Badge>
-              <Badge variant="outline">Wednesdays 18:00 or Saturdays 10:00 (Lisbon)</Badge>
+              <Badge className="bg-pink-100 text-pink-700 border border-pink-200">
+                Max 25 seats
+              </Badge>
+              <Badge className="bg-emerald-100 text-emerald-700 border border-emerald-200" variant="secondary">
+                $390 total • 10% sibling discount
+              </Badge>
+              <Badge className="bg-yellow-100 text-yellow-700 border border-yellow-200" variant="outline">
+                Wednesdays 18:00 or Saturdays 10:00 (Lisbon)
+              </Badge>
             </div>
             <div className="mt-6 flex gap-3">
-              <Button size="lg" onClick={scrollToEnroll}>
+              <Button
+                size="lg"
+                className="bg-black hover:bg-gray-900 text-white font-bold shadow"
+                onClick={scrollToEnroll}
+              >
                 Apply Now <ArrowRight className="ml-2 h-4 w-4"/>
               </Button>
               {/* <Button size="lg" variant="outline">Download Flyer</Button> */}
@@ -143,7 +157,7 @@ export default function LandingPage() {
             </div>
           </motion.div>
           <motion.div initial={{opacity:0, scale: 0.98}} whileInView={{opacity:1, scale:1}} transition={{duration:0.6, delay:0.1}} viewport={{once:true}}>
-            <Card className="border-0 shadow-xl rounded-2xl">
+            <Card className="rounded-2xl bg-white shadow-lg border border-yellow-100">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2"><Code2 className="h-5 w-5"/> What students build</CardTitle>
               </CardHeader>
@@ -211,8 +225,8 @@ export default function LandingPage() {
       {/* Curriculum */}
       <Section id="curriculum" className="pt-20">
         <div className="flex items-center gap-2 mb-6">
-          <Lightbulb className="h-5 w-5"/>
-          <h2 className="text-2xl md:text-3xl font-bold">10‑Week Curriculum</h2>
+          <Lightbulb className="h-5 w-5 text-yellow-400"/>
+          <h2 className="text-2xl md:text-3xl font-bold text-indigo-700 drop-shadow">10‑Week Curriculum</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {[
@@ -227,7 +241,7 @@ export default function LandingPage() {
             {w:9,t:"Pitchcraft + polish",d:"Refine MVP and assets; two rounds of pitches with rubric‑based feedback."},
             {w:10,t:"Showcase & celebration",d:"Parent audience, live demos, certificates, awards, next‑steps plan."},
           ].map((item)=> (
-            <Card key={item.w} className="rounded-2xl">
+            <Card key={item.w} className="rounded-2xl border-2 border-yellow-200 bg-gradient-to-br from-white via-yellow-50 to-pink-50 shadow-lg">
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2">
                   <Badge variant="outline">Week {item.w}</Badge>
@@ -243,11 +257,11 @@ export default function LandingPage() {
       {/* Outcomes */}
       <Section id="outcomes" className="pt-20">
         <div className="flex items-center gap-2 mb-6">
-          <CheckCircle2 className="h-5 w-5"/>
-          <h2 className="text-2xl md:text-3xl font-bold">What You’ll Gain</h2>
+          <CheckCircle2 className="h-5 w-5 text-emerald-500"/>
+          <h2 className="text-2xl md:text-3xl font-bold text-pink-600 drop-shadow">What You’ll Gain</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          <Card className="rounded-2xl"><CardContent className="p-6"><h4 className="font-semibold mb-2">Creator Mindset</h4><p className="text-sm text-muted-foreground">Shift from consumer to builder through weekly shipping and feedback.</p></CardContent></Card>
+          <Card className="rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-white via-emerald-50 to-pink-50 shadow-lg"><CardContent className="p-6"><h4 className="font-semibold mb-2">Creator Mindset</h4><p className="text-sm text-muted-foreground">Shift from consumer to builder through weekly shipping and feedback.</p></CardContent></Card>
           <Card className="rounded-2xl"><CardContent className="p-6"><h4 className="font-semibold mb-2">AI Fluency</h4><p className="text-sm text-muted-foreground">Prompting, prototyping, and practical tools for real‑world use.</p></CardContent></Card>
           <Card className="rounded-2xl"><CardContent className="p-6"><h4 className="font-semibold mb-2">Business Basics</h4><p className="text-sm text-muted-foreground">User research, MVPs, positioning, pricing, and simple unit economics.</p></CardContent></Card>
           <Card className="rounded-2xl"><CardContent className="p-6"><h4 className="font-semibold mb-2">Team Skills</h4><p className="text-sm text-muted-foreground">Collaboration, communication, and iterative problem‑solving.</p></CardContent></Card>
@@ -259,10 +273,10 @@ export default function LandingPage() {
       {/* Instructor */}
       <Section id="instructor" className="pt-20">
         <div className="flex items-center gap-2 mb-6">
-          <Users className="h-5 w-5"/>
-          <h2 className="text-2xl md:text-3xl font-bold">Your Instructor</h2>
+          <Users className="h-5 w-5 text-pink-500"/>
+          <h2 className="text-2xl md:text-3xl font-bold text-emerald-700 drop-shadow">Your Instructor</h2>
         </div>
-        <Card className="rounded-2xl">
+        <Card className="rounded-2xl border-2 border-indigo-200 bg-gradient-to-br from-white via-indigo-50 to-pink-50 shadow-xl">
           <CardContent className="p-6 flex flex-col md:flex-row gap-6 items-center md:items-start">
             <Avatar className="h-20 w-20"><AvatarFallback>AN</AvatarFallback></Avatar>
             <div className="grid gap-2">
@@ -312,7 +326,7 @@ export default function LandingPage() {
       </Section>
 
       {/* Testimonials */}
-      <Section id="social-proof" className="pt-20">
+      <Section id="social-proof" className="pt-20 bg-yellow-50 rounded-xl">
         <div className="flex items-center gap-2 mb-6">
           <Star className="h-5 w-5"/>
           <h2 className="text-2xl md:text-3xl font-bold">What Families Say</h2>
@@ -332,8 +346,8 @@ export default function LandingPage() {
       {/* FAQ */}
       <Section id="faq" className="pt-20 pb-24">
         <div className="flex items-center gap-2 mb-6">
-          <MessageSquare className="h-5 w-5"/>
-          <h2 className="text-2xl md:text-3xl font-bold">FAQ</h2>
+          <MessageSquare className="h-5 w-5 text-yellow-500"/>
+          <h2 className="text-2xl md:text-3xl font-bold text-indigo-700 drop-shadow">FAQ</h2>
         </div>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
@@ -352,7 +366,7 @@ export default function LandingPage() {
       </Section>
 
       {/* Footer */}
-      <footer className="border-t py-12 mt-12">
+      <footer className="border-t py-12 mt-12 bg-gradient-to-r from-white via-yellow-50 to-pink-50">
         <Section id="cta">
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
@@ -360,17 +374,23 @@ export default function LandingPage() {
               <p className="text-sm md:text-base text-muted-foreground mt-2">Seats are limited to 25. Apply now to choose your preferred time: Wednesday 18:00 or Saturday 10:00.</p>
             </div>
             <div className="flex md:justify-end gap-3">
-              <Button size="lg" onClick={scrollToEnroll}>Apply Now</Button>
+              <Button
+                size="lg"
+                className="bg-black hover:bg-gray-900 text-white font-bold shadow-lg"
+                onClick={scrollToEnroll}
+              >
+                Apply Now
+              </Button>
               <a
                 href="mailto:aientrepreneursprogram@gmail.com"
-                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-indigo-700 hover:bg-indigo-50 transition"
+                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-pink-700 hover:bg-pink-100 transition"
                 style={{ textDecoration: "none" }}
               >
                 email us
               </a>
               <a
                 href="tel:+351912730659"
-                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-indigo-700 hover:bg-indigo-50 transition"
+                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-emerald-700 hover:bg-emerald-100 transition"
                 style={{ textDecoration: "none" }}
               >
                 call us
