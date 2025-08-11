@@ -357,7 +357,20 @@ export default function LandingPage() {
             </div>
             <div className="flex md:justify-end gap-3">
               <Button size="lg" onClick={scrollToEnroll}>Apply Now</Button>
-              <Button size="lg" variant="outline" onClick={() => window.location.href = "mailto:hello@yourdomain.com"}>Ask a Question</Button>
+              <a
+                href="mailto:aientrepreneursprogram@gmail.com"
+                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-indigo-700 hover:bg-indigo-50 transition"
+                style={{ textDecoration: "none" }}
+              >
+                email us
+              </a>
+              <a
+                href="tel:+351912730659"
+                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-indigo-700 hover:bg-indigo-50 transition"
+                style={{ textDecoration: "none" }}
+              >
+                call us
+              </a>
             </div>
           </div>
           <div className="text-xs text-muted-foreground mt-6">© {new Date().getFullYear()} AI Entrepreneurs Program — Lisbon</div>
