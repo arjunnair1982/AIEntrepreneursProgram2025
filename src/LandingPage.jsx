@@ -13,6 +13,7 @@ import {
   Sparkles, Trophy, Star, ArrowRight, BookOpenText, ShieldCheck,
   Lightbulb, Coins, Presentation, MessageSquare, Code2,
 } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const Section = ({ id, children, className = "" }) => (
   <section id={id} className={`w-full max-w-6xl mx-auto px-4 md:px-6 ${className}`}>
@@ -399,6 +400,16 @@ export default function LandingPage() {
                 style={{ textDecoration: "none" }}
               >
                 call us
+              </a>
+              <a
+                href="https://www.instagram.com/aientrepreneurslisbon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-pink-700 hover:bg-pink-100 transition"
+                style={{ textDecoration: "none" }}
+              >
+                <Instagram className="h-5 w-5 mr-2" />
+                Instagram
               </a>
             </div>
           </div>
