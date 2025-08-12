@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -159,24 +159,24 @@ export default function LandingPage() {
           <motion.div initial={{opacity:0, scale: 0.98}} whileInView={{opacity:1, scale:1}} transition={{duration:0.6, delay:0.1}} viewport={{once:true}}>
             <Card className="rounded-2xl bg-white shadow-lg border border-yellow-100">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2"><Code2 className="h-5 w-5"/> What students build</CardTitle>
+                <CardTitle className="flex items-center gap-2"><Code2 className="h-5 w-5"/> What students will experience</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4 md:grid-cols-2">
                 <div className="rounded-xl p-4 border bg-white">
-                  <h4 className="font-semibold">AI‑assisted Apps</h4>
-                  <p className="text-sm text-muted-foreground">From idea to prototype with Lovable/Bolt, shipped online.</p>
+                  <h4 className="font-semibold">Building AI‑assisted Apps</h4>
+                  <p className="text-sm text-muted-foreground">Research ideas and build prototypes; ship online.</p>
                 </div>
                 <div className="rounded-xl p-4 border bg-white">
-                  <h4 className="font-semibold">Mini‑Ventures</h4>
+                  <h4 className="font-semibold">Creating Mini‑Ventures</h4>
                   <p className="text-sm text-muted-foreground">Real users, real feedback, and simple business models.</p>
                 </div>
                 <div className="rounded-xl p-4 border bg-white">
-                  <h4 className="font-semibold">Brand & Pitch</h4>
-                  <p className="text-sm text-muted-foreground">Logos, landing pages, 2‑minute pitch videos.</p>
+                  <h4 className="font-semibold">Branding & Presentation</h4>
+                  <p className="text-sm text-muted-foreground">Logos, landing pages, punchy videos and pitching.</p>
                 </div>
                 <div className="rounded-xl p-4 border bg-white">
                   <h4 className="font-semibold">Showcase Portfolio</h4>
-                  <p className="text-sm text-muted-foreground">A shareable page of all demos, assets, and learnings.</p>
+                  <p className="text-sm text-muted-foreground">A shareable digital asset that could be monetized.</p>
                 </div>
               </CardContent>
             </Card>
@@ -195,9 +195,9 @@ export default function LandingPage() {
           <TabsContent value="parents" className="mt-6">
             <Card className="rounded-2xl">
               <CardContent className="p-6 grid md:grid-cols-3 gap-6">
-                <Feature icon={ShieldCheck} title="Safe & Structured">Clear weekly goals, code of conduct, and ethical AI usage.</Feature>
-                <Feature icon={CheckCircle2} title="Visible Progress">Weekly demos and a living portfolio you can follow at home.</Feature>
                 <Feature icon={Coins} title="Practical Value">Early exposure to AI skills, problem‑solving, and entrepreneurship.</Feature>
+                <Feature icon={CheckCircle2} title="Visible Progress">Hands on activities, regular updates and a portfolio you can follow at home.</Feature>
+                <Feature icon={ShieldCheck} title="Safe & Structured">Clear weekly goals, code of conduct, and ethical AI usage.</Feature>
               </CardContent>
             </Card>
           </TabsContent>
@@ -214,8 +214,8 @@ export default function LandingPage() {
             <Card className="rounded-2xl">
               <CardContent className="p-6 grid md:grid-cols-3 gap-6">
                 <Feature icon={BookOpenText} title="Designed for Terms">10 concise weeks, 2‑hour sessions, clear outcomes per week.</Feature>
-                <Feature icon={Presentation} title="Portfolio Evidence">Shareable artifacts and rubric scores for each learner.</Feature>
-                <Feature icon={School} title="No IT Hassle">Cloud tools; bring laptops. Zero heavy installs.</Feature>
+                <Feature icon={Sparkles} title="Future Ready Kids">Suppliment school curriculum with cutting edge AI skills in a low effort way</Feature>
+                <Feature icon={School} title="Enhances Innovation Profile">Positions the school as a leader in forward-thinking, technology-driven education</Feature>
               </CardContent>
             </Card>
           </TabsContent>
@@ -230,13 +230,13 @@ export default function LandingPage() {
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            {w:1,t:"Build your first AI app",d:"Mentimeter kick‑off, Shark Tank inspo, Lovable/Bolt prototype, team feedback."},
-            {w:2,t:"Design Thinking field sprint",d:"Observe/interview local businesses, synthesize needs, paper prototype."},
-            {w:3,t:"Learn from success & failure",d:"Marshmallow challenge; analyze real startups; snapshot business models."},
-            {w:4,t:"Team formation + research",d:"Narrow to 2 ideas; AI‑assisted user & competitor research; differentiation."},
-            {w:5,t:"Define → Ideate → Prototype",d:"Create interview script, collect 10 responses, feature cutline, v0 prototype."},
+            {w:1,t:"Build your first AI app",d:"Game Design, Shark Tank business analysis, build lovable/bolt prototype."},
+            {w:2,t:"Design Thinking field sprint",d:"Observe/interview local businesses, synthesize needs, brainstorm solutions."},
+            {w:3,t:"Learn from success & failure",d:"Fun hands on design project; entrepreneural mindset, analyze real startups."},
+            {w:4,t:"Team formation + research",d:"Structured evaluation of ideas; AI‑assisted research (NotebookLM)."},
+            {w:5,t:"Define → Ideate → Prototype",d:"Create interview script, collect responses, v0 prototype, feedback analysis."},
             {w:6,t:"MVP & simple business model",d:"Ship MVP link (Replit/GitHub Pages), pricing hypothesis, unit economics."},
-            {w:7,t:"Branding & go‑to‑market",d:"Logo in Canva, 20‑sec intro video, positioning one‑liner, landing teaser."},
+            {w:7,t:"Branding & go‑to‑market",d:"Logo in Canva, intro video, positioning one‑liner, marketing plan."},
             {w:8,t:"Sales experiments (ethical)",d:"Run small tests; track sign‑ups/objections; iterate product & pricing."},
             {w:9,t:"Pitchcraft + polish",d:"Refine MVP and assets; two rounds of pitches with rubric‑based feedback."},
             {w:10,t:"Showcase & celebration",d:"Parent audience, live demos, certificates, awards, next‑steps plan."},
@@ -278,7 +278,10 @@ export default function LandingPage() {
         </div>
         <Card className="rounded-2xl border-2 border-indigo-200 bg-gradient-to-br from-white via-indigo-50 to-pink-50 shadow-xl">
           <CardContent className="p-6 flex flex-col md:flex-row gap-6 items-center md:items-start">
-            <Avatar className="h-20 w-20"><AvatarFallback>AN</AvatarFallback></Avatar>
+            <Avatar className="h-20 w-20 border-2 border-indigo-200">
+              <AvatarImage src="./headshot.png" alt="Arjun Nair" />
+              <AvatarFallback>AN</AvatarFallback>
+              </Avatar>
             <div className="grid gap-2">
               <h3 className="text-xl font-semibold">Arjun Nair</h3>
               <div className="text-sm text-muted-foreground max-w-prose">
@@ -305,14 +308,14 @@ export default function LandingPage() {
           <Card className="rounded-2xl"><CardContent className="p-6 grid gap-2">
             <h4 className="font-semibold flex items-center gap-2"><Clock3 className="h-4 w-4"/> Sessions</h4>
             <p className="text-sm text-muted-foreground">2 hours once a week • Choose: Wed 18:00 or Sat 10:00 (Lisbon)</p>
+            <p className="text-sm text-muted-foreground">Starting September 20th</p>
             <h4 className="font-semibold flex items-center gap-2 mt-4"><MapPin className="h-4 w-4"/> Location</h4>
             <p className="text-sm text-muted-foreground">Lisbon (central). Details shared upon enrollment.</p>
           </CardContent></Card>
           <Card className="rounded-2xl"><CardContent className="p-6 grid gap-2">
             <h4 className="font-semibold">Tuition</h4>
-            <div className="text-3xl font-bold">$390</div>
+            <div className="text-3xl font-bold">€390</div>
             <p className="text-sm text-muted-foreground">Covers all 10 weeks • 10% sibling discount • Max 25 seats</p>
-            <div className="mt-2"><Badge variant="secondary">Scholarships by request</Badge></div>
           </CardContent></Card>
           <Card className="rounded-2xl">
             <CardContent className="p-6 grid gap-3">
@@ -340,7 +343,7 @@ export default function LandingPage() {
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
             className="w-full h-full"
-></iframe>
+          ></iframe>
           </div>
         </div>
       </Section>
