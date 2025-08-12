@@ -13,7 +13,7 @@ import {
   Sparkles, Trophy, Star, ArrowRight, BookOpenText, ShieldCheck,
   Lightbulb, Coins, Presentation, MessageSquare, Code2,
 } from "lucide-react";
-import { Instagram, Mail, Phone,} from "lucide-react";
+import { Instagram, Mail, Phone, Linkedin} from "lucide-react";
 
 const Section = ({ id, children, className = "" }) => (
   <section id={id} className={`w-full max-w-6xl mx-auto px-4 md:px-6 ${className}`}>
@@ -327,10 +327,30 @@ export default function LandingPage() {
               <AvatarFallback>AN</AvatarFallback>
               </Avatar>
             <div className="grid gap-2">
-              <h3 className="text-xl font-semibold">Arjun Nair</h3>
+              <h3 className="text-xl font-semibold flex items-center gap-2">
+                Arjun Nair
+                <a
+                  href="https://www.linkedin.com/in/arjun-nair/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center text-blue-600 hover:text-blue-700"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/aientrepreneurslisbon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center text-pink-600 hover:text-pink-700"
+                  aria-label="Instagram Profile"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+              </h3>
               <div className="text-sm text-muted-foreground max-w-prose">
                 Co‑founder of Great Learning — delivering AI & tech programs for 12+ years in 170+ countries to 10M+ learners.
-                Passionate about helping teens become creators and leaders.
+                Passionate about helping others become creators and leaders.
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
                 <Pill><ShieldCheck className="h-4 w-4 mr-1"/> Safe, ethical AI</Pill>
