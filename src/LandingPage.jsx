@@ -270,6 +270,49 @@ export default function LandingPage() {
           <Card className="rounded-2xl"><CardContent className="p-6"><h4 className="font-semibold mb-2">Confidence</h4><p className="text-sm text-muted-foreground">Public showcase with parents and guests; certificate ceremony.</p></CardContent></Card>
         </div>
       </Section>
+      
+      {/* Testimonials */}
+      <Section id="testimonials" className="pt-20 pb-8">
+  <div className="flex items-center gap-2 mb-6">
+    <Star className="h-5 w-5 text-pink-500"/>
+    <h2 className="text-2xl md:text-3xl font-bold text-indigo-700 drop-shadow">What Families Say</h2>
+  </div>
+  <div className="grid md:grid-cols-3 gap-4">
+    {[
+      {
+        quote: "It's a really cool program, we got to learn a lot of different things around AI. Really cool to work on our businesses.",
+        name: "13 year old"
+      },
+      {
+        quote: "Program was amazing! My daughter was so excited that she didn't even want to take a break! The ideas that the kids presented, I can't imagine how they came up with it.",
+        name: "Mother of a 14 year old"
+      },
+      {
+        quote: "It was really nice to see kids present their projects. This program is really good for our kids to become the future generation of entrepreneurs!",
+        name: "Mother of 13 year old"
+      },
+      {
+        quote: "The program completely surpassed my expectations! The kids learned actual skills. The most important thing they learned was how to think, to problem solve and see problems as opportunities to solve.",
+        name: "Mother of 13 year old"
+      },
+      {
+        quote: "It was a great program. I learned a lot about business, entrepreneurship. Arjun was a great leader. It was a lot of fun, working in teams and on projects and solving issues!",
+        name: "16 year old"
+      },
+      {
+        quote: "He really liked it. Would come back home and tell us about the apps he was building. He had a really good time; enjoyed a lot. He was really excited and it looks like it is something he would like to continue!",
+        name: "Mother of 14 year old"
+      }
+    ].map((t, i) => (
+      <Card key={i} className="rounded-2xl bg-white shadow-lg border border-yellow-100">
+        <CardContent className="p-6 flex flex-col gap-4">
+          <div className="text-muted-foreground text-sm">"{t.quote}"</div>
+          <div className="text-xs text-right text-gray-500 font-semibold">{t.name}</div>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+</Section>
 
       {/* Instructor */}
       <Section id="instructor" className="pt-20">
@@ -333,7 +376,7 @@ export default function LandingPage() {
       <Section id="video" className="pt-20 pb-8">
         <div className="flex items-center gap-2 mb-6">
           <Star className="h-5 w-5 text-pink-500"/>
-          <h2 className="text-2xl md:text-3xl font-bold text-indigo-700 drop-shadow">See a Previous Session</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-pink-600 drop-shadow">See a Previous Session</h2>
         </div>
         <div className="flex justify-center">
           <div className="w-full max-w-2xl aspect-video rounded-xl overflow-hidden shadow-lg border border-yellow-100 bg-white">
@@ -353,7 +396,7 @@ export default function LandingPage() {
       <Section id="faq" className="pt-20 pb-24">
         <div className="flex items-center gap-2 mb-6">
           <MessageSquare className="h-5 w-5 text-yellow-500"/>
-          <h2 className="text-2xl md:text-3xl font-bold text-indigo-700 drop-shadow">FAQ</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-emerald-700 drop-shadow">FAQ</h2>
         </div>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
