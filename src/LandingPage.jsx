@@ -13,7 +13,7 @@ import {
   Sparkles, Trophy, Star, ArrowRight, BookOpenText, ShieldCheck,
   Lightbulb, Coins, Presentation, MessageSquare, Code2,
 } from "lucide-react";
-import { Instagram } from "lucide-react";
+import { Instagram, Mail, Phone,} from "lucide-react";
 
 const Section = ({ id, children, className = "" }) => (
   <section id={id} className={`w-full max-w-6xl mx-auto px-4 md:px-6 ${className}`}>
@@ -389,27 +389,29 @@ export default function LandingPage() {
               </Button>
               <a
                 href="mailto:aientrepreneursprogram@gmail.com"
-                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-pink-700 hover:bg-pink-100 transition"
+                className="inline-flex items-center justify-center rounded-full border p-3 text-pink-700 hover:bg-pink-100 transition"
                 style={{ textDecoration: "none" }}
+                aria-label="Email"
               >
-                email us
+                <Mail className="h-5 w-5" />
               </a>
               <a
                 href="tel:+351912730659"
-                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-emerald-700 hover:bg-emerald-100 transition"
+                className="inline-flex items-center justify-center rounded-full border p-3 text-emerald-700 hover:bg-emerald-100 transition"
                 style={{ textDecoration: "none" }}
+                aria-label="Call"
               >
-                call us
+                <Phone className="h-5 w-5" />
               </a>
               <a
                 href="https://www.instagram.com/aientrepreneurslisbon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-md border px-4 py-2 text-base font-medium text-pink-700 hover:bg-pink-100 transition"
+                className="inline-flex items-center justify-center rounded-full border p-3 text-pink-700 hover:bg-pink-100 transition"
                 style={{ textDecoration: "none" }}
+                aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5 mr-2" />
-                Instagram
+                <Instagram className="h-5 w-5" />
               </a>
             </div>
           </div>
