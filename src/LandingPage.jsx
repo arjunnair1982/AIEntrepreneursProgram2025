@@ -140,7 +140,7 @@ export default function LandingPage() {
                 $390 total • 10% sibling discount
               </Badge>
               <Badge className="bg-yellow-100 text-yellow-700 border border-yellow-200" variant="outline">
-                Wednesdays 18:00 or Saturdays 10:00 (Lisbon)
+                Saturdays 10:00 (Lisbon)
               </Badge>
             </div>
             <div className="mt-6 flex gap-3">
@@ -440,7 +440,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold">Ready to reserve a seat?</h3>
-              <p className="text-sm md:text-base text-muted-foreground mt-2">Seats are limited to 25. Apply now to choose your preferred time: Wednesday 18:00 or Saturday 10:00.</p>
+              <p className="text-sm md:text-base text-muted-foreground mt-2">Seats are limited to 25. Apply now! Saturday 10:00.</p>
             </div>
             <div className="flex md:justify-end gap-3">
               <Button
