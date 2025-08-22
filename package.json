@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build && cp docs/index.html docs/404.html",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "vite build && cp docs/index.html docs/404.html",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "deploy": "npm run build && git add docs vite.config.js package.json && git commit -m 'Deploy' && git push origin main"
+},
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-avatar": "^1.1.10",
