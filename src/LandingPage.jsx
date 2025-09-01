@@ -41,9 +41,53 @@ function scrollToEnroll() {
   document.getElementById("schedule")?.scrollIntoView({ behavior: "smooth" });
 }
 
+const isValidPhone = (phone) => {
+  // Accepts formats: +351912345678, 351912345678, 912345678
+  const phoneRegex = /^(\+)?(\d{9,12})$/;
+  return phoneRegex.test(phone.replace(/\s+/g, '')); // Remove spaces before testing
+};
+
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 export function GoogleFormEnroll() {
   const [submitted, setSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [emailError, setEmailError] = useState('');
   const formRef = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const phone = e.target.elements['entry.456613422'].value.trim();
+    const email = e.target.elements['entry.1924727914'].value.trim();
+    
+    let hasError = false;
+
+    if (!phone) {
+      setPhoneError('Phone number is required');
+      hasError = true;
+    } else if (!isValidPhone(phone)) {
+      setPhoneError('Please enter a valid phone number');
+      hasError = true;
+    }
+
+    if (!email) {
+      setEmailError('Email is required');
+      hasError = true;
+    } else if (!isValidEmail(email)) {
+      setEmailError('Please enter a valid email address');
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    setPhoneError('');
+    setEmailError('');
+    formRef.current.submit();
+    setTimeout(() => setSubmitted(true), 1500);
+  };
 
   // Listen for iframe load event to show thank you message
   useEffect(() => {
@@ -69,13 +113,54 @@ export function GoogleFormEnroll() {
       method="POST"
       target="hidden_iframe"
       className="grid gap-3"
+      onSubmit={handleSubmit}
     >
-      <input name="entry.996326909" placeholder="Parent name" required className="h-10 rounded-md border px-3" />
-      <input name="entry.1924727914" type="email" placeholder="Email" required className="h-10 rounded-md border px-3" />
-      <input name="entry.456613422" placeholder="Phone / WhatsApp" className="h-10 rounded-md border px-3" />
-      <input name="entry.2045828393" placeholder="Student name & age" required className="h-10 rounded-md border px-3" />
-      <textarea name="entry.2112294450" placeholder="Any questions or notes?" className="min-h-[96px] rounded-md border p-3" />
-      <button type="submit" className="inline-flex items-center justify-center rounded-md bg-black px-4 py-2 text-white hover:opacity-90">
+      <input 
+        name="entry.996326909" 
+        placeholder="Parent name" 
+        required 
+        className="h-10 rounded-md border px-3" 
+      />
+      <div className="grid gap-1">
+        <input
+          name="entry.1924727914"
+          type="email"
+          placeholder="Email"
+          required
+          className={`h-10 rounded-md border px-3 ${emailError ? 'border-red-500' : ''}`}
+          onChange={() => setEmailError('')}
+        />
+        {emailError && (
+          <div className="text-xs text-red-500">{emailError}</div>
+        )}
+      </div>
+      <div className="grid gap-1">
+        <input
+          name="entry.456613422"
+          placeholder="Phone / WhatsApp"
+          required
+          className={`h-10 rounded-md border px-3 ${phoneError ? 'border-red-500' : ''}`}
+          onChange={() => setPhoneError('')}
+        />
+        {phoneError && (
+          <div className="text-xs text-red-500">{phoneError}</div>
+        )}
+      </div>
+      <input 
+        name="entry.2045828393" 
+        placeholder="Student name & age" 
+        required 
+        className="h-10 rounded-md border px-3" 
+      />
+      <textarea 
+        name="entry.2112294450" 
+        placeholder="Any questions or notes?" 
+        className="min-h-[96px] rounded-md border p-3" 
+      />
+      <button 
+        type="submit" 
+        className="inline-flex items-center justify-center rounded-md bg-black px-4 py-2 text-white hover:opacity-90"
+      >
         Submit Interest
       </button>
     </form>
@@ -133,14 +218,20 @@ export default function LandingPage() {
               and launch real mini‑ventures—culminating in a public showcase.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Badge className="bg-pink-100 text-pink-700 border border-pink-200">
+              {/* <Badge className="bg-pink-100 text-pink-700 border border-pink-200">
                 Max 25 seats
-              </Badge>
+              </Badge> */}
               <Badge className="bg-emerald-100 text-emerald-700 border border-emerald-200" variant="secondary">
                 $390 total • 10% sibling discount
               </Badge>
               <Badge className="bg-yellow-100 text-yellow-700 border border-yellow-200" variant="outline">
-                Saturdays 10:00 (Lisbon)
+                Saturdays 10am–12pm (Nearly Full)
+              </Badge>
+              <Badge className="bg-gray-100 text-gray-700 border border-gray-200" variant="outline">
+                Wednesday 5pm–7pm <span className="italic text-xs ml-1">(open)</span>
+              </Badge>
+              <Badge className="bg-gray-100 text-gray-700 border border-gray-200" variant="outline">
+                Saturday 1pm–3pm <span className="italic text-xs ml-1">(open)</span>
               </Badge>
             </div>
             <div className="mt-6 flex gap-3">
@@ -371,15 +462,19 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-3 gap-4">
           <Card className="rounded-2xl"><CardContent className="p-6 grid gap-2">
             <h4 className="font-semibold flex items-center gap-2"><Clock3 className="h-4 w-4"/> Sessions</h4>
-            <p className="text-sm text-muted-foreground">2 hours once a week • Choose: Wed 18:00 or Sat 10:00 (Lisbon)</p>
-            <p className="text-sm text-muted-foreground">Starting September 20th</p>
+            <p className="text-sm text-muted-foreground">
+              2 hours once a week • Sat 10am–12pm (Nearly Full)
+            </p>
+            <p className="text-sm text-muted-foreground">
+              <span className="font-semibold">Open:</span> Wed 5pm–7pm or Sat 1pm–3pm
+            </p>
             <h4 className="font-semibold flex items-center gap-2 mt-4"><MapPin className="h-4 w-4"/> Location</h4>
             <p className="text-sm text-muted-foreground">Lisbon (central). Details shared upon enrollment.</p>
           </CardContent></Card>
           <Card className="rounded-2xl"><CardContent className="p-6 grid gap-2">
             <h4 className="font-semibold">Tuition</h4>
             <div className="text-3xl font-bold">€390</div>
-            <p className="text-sm text-muted-foreground">Covers all 10 weeks • 10% sibling discount • Max 25 seats</p>
+            <p className="text-sm text-muted-foreground">Covers all 10 weeks • 10% sibling discount</p>
           </CardContent></Card>
           <Card className="rounded-2xl">
             <CardContent className="p-6 grid gap-3">
@@ -440,7 +535,9 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold">Ready to reserve a seat?</h3>
-              <p className="text-sm md:text-base text-muted-foreground mt-2">Seats are limited to 25. Apply now! Saturday 10:00.</p>
+              <p className="text-sm md:text-base text-muted-foreground mt-2">
+                Apply now! Saturday 10am–12pm. Wednesday 5pm–7pm or Saturday 1pm–3pm<span className="font-semibold">.</span>
+              </p>
             </div>
             <div className="flex md:justify-end gap-3">
               <Button
