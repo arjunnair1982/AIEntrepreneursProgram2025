@@ -225,7 +225,7 @@ export default function LandingPage() {
                 $390 total • 10% sibling discount
               </Badge>
               <Badge className="bg-yellow-100 text-yellow-700 border border-yellow-200" variant="outline">
-                Saturdays 10am–12pm (Nearly Full)
+                Saturdays 10am–12pm (Full)
               </Badge>
               <Badge className="bg-gray-100 text-gray-700 border border-gray-200" variant="outline">
                 Wednesday 5pm–7pm <span className="italic text-xs ml-1">(open)</span>
@@ -416,7 +416,7 @@ export default function LandingPage() {
             <Avatar className="h-20 w-20 border-2 border-indigo-200">
               <AvatarImage src="./headshot.png" alt="Arjun Nair" />
               <AvatarFallback>AN</AvatarFallback>
-              </Avatar>
+            </Avatar>
             <div className="grid gap-2">
               <h3 className="text-xl font-semibold flex items-center gap-2">
                 Arjun Nair
@@ -439,14 +439,32 @@ export default function LandingPage() {
                   <Instagram className="h-5 w-5" />
                 </a>
               </h3>
-              <div className="text-sm text-muted-foreground max-w-prose">
-                Co‑founder of Great Learning — delivering AI & tech programs for 12+ years in 170+ countries to 10M+ learners.
-                Passionate about helping others become creators and leaders.
+              <div className="text-base font-semibold text-indigo-700 mb-1">
+                Entrepreneurship Educator &amp; Business Mentor
               </div>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <Pill><ShieldCheck className="h-4 w-4 mr-1"/> Safe, ethical AI</Pill>
-                <Pill><Star className="h-4 w-4 mr-1"/> Project‑based</Pill>
-                <Pill><CalendarDays className="h-4 w-4 mr-1"/> 10 weeks</Pill>
+              <div className="text-sm text-muted-foreground max-w-prose">
+                Arjun Nair is the Co-Founder of Great Learning, a global edtech platform that scaled to over $100 million in revenue, impacted over 10 million learners across 170+ countries, and was acquired by Byju’s in a landmark $600 million deal.<br /><br />
+                Arjun holds an MS from Duke University and an MBA from MIT Sloan, where he was awarded the prestigious Legatum Fellowship, given to select entrepreneurs from emerging markets. At Great Learning, he helped shape one of the world’s leading platforms for career-focused education, emphasizing practical skills, employability, and lifelong learning.<br /><br />
+                Over the past decade, Arjun has built businesses from 0→1 and scaled them across continents, leading large teams and navigating the challenges of high-growth entrepreneurship. His work has been recognized globally, including being named to BW Businessworld’s 40 Under 40 and invited to speak at Stanford University.<br /><br />
+                In this program, Arjun draws on his entrepreneurial journey to inspire young people. Participants will benefit from his insights on launching startups, building MVPs, and scaling impactful ventures in today’s fast-changing world.
+              </div>
+              <div className="mt-4 grid gap-2">
+                <div>
+                  <span className="font-semibold text-indigo-700">Recognition:</span>
+                  <ul className="list-disc ml-5 text-sm text-muted-foreground">
+                    <li>Speaker at Stanford University</li>
+                    <li>BW Businessworld 40 Under 40</li>
+                    <li>MIT Sloan Legatum Fellowship (for entrepreneurs from emerging markets)</li>
+                  </ul>
+                </div>
+                <div>
+                  <span className="font-semibold text-indigo-700">Experience:</span>
+                  <ul className="list-disc ml-5 text-sm text-muted-foreground">
+                    <li>Founder: From idea to exit</li>
+                    <li>Scaler: Built $100M+ business across continents</li>
+                    <li>Educator: Impacted 10M+ learners worldwide</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -460,18 +478,23 @@ export default function LandingPage() {
           <h2 className="text-2xl md:text-3xl font-bold">Schedule & Pricing</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          <Card className="rounded-2xl"><CardContent className="p-6 grid gap-2">
-            <h4 className="font-semibold flex items-center gap-2"><Clock3 className="h-4 w-4"/> Sessions</h4>
-            <p className="text-sm text-muted-foreground">
-              2 hours once a week • Sat 10am–12pm (Nearly Full)
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <span className="font-semibold">Open:</span> Wed 5pm–7pm or Sat 1pm–3pm
-            </p>
-            <h4 className="font-semibold flex items-center gap-2 mt-4"><MapPin className="h-4 w-4"/> Location</h4>
-            <p className="text-sm text-muted-foreground">Lisbon (central). Details shared upon enrollment.</p>
-          </CardContent></Card>
-          <Card className="rounded-2xl"><CardContent className="p-6 grid gap-2">
+          <Card className="rounded-2xl">
+      <CardContent className="p-6 grid gap-2">
+        <h4 className="font-semibold flex items-center gap-2"><Clock3 className="h-4 w-4"/> Sessions</h4>
+        <p className="text-sm text-muted-foreground">
+          <span className="font-semibold">Start Date:</span> September 20th, 2025
+        </p>
+        <p className="text-sm text-muted-foreground">
+          2 hours once a week • Sat 10am–12pm (Full)
+        </p>
+        <p className="text-sm text-muted-foreground">
+          <span className="font-semibold">Open:</span> Wed 5pm–7pm or Sat 1pm–3pm
+        </p>
+        <h4 className="font-semibold flex items-center gap-2 mt-4"><MapPin className="h-4 w-4"/> Location</h4>
+        <p className="text-sm text-muted-foreground">Lisbon (central). Details shared upon enrollment.</p>
+      </CardContent>
+    </Card>
+    <Card className="rounded-2xl"><CardContent className="p-6 grid gap-2">
             <h4 className="font-semibold">Tuition</h4>
             <div className="text-3xl font-bold">€390</div>
             <p className="text-sm text-muted-foreground">Covers all 10 weeks • 10% sibling discount</p>
